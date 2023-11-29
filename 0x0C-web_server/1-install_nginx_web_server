@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# This script installs Nginx with the following configurations:
+#+    Listens on port 80.
+#+    returns a page containing "Hello World!" when queried
+#++    at the root with a curl GET request.
+
+# Updates the package lists for available software packages.
+apt-get update
+# Installs the Nginx web server.
+apt-get install -y nginx
+
+# Create the /etc/nginx/html directory, which will serve as the document root directory for Nginx.
+mkdir /etc/nginx/html
+#  Create an empty index.html file inside the /etc/nginx/html directory.
+touch /etc/nginx/html/index.html
+# Sets the content of the index.html file to "Hello World!" using the echo command.
+echo "Hello World!" > /etc/nginx/html/index.html
+# set Nginx to listen on port 80 and serve files from the /etc/nginx/html directory.
+printf %s "server {
+     listen      80;
+     listen      [::]:80 default_server;
+     root        /etc/nginx/html;
+     index       index.html index.htm;
+}
+" > /etc/nginx/sites-available/default
