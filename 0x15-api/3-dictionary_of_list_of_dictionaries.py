@@ -1,18 +1,21 @@
 #!/usr/bin/python3
-# Calls RESTful API and exports to JSON file for all users
+"""
+Exports to-do list info of all employees to JSON format
+"""
+
 import json
 import requests
 
 
 def fetch_user_data():
-    '''Gather user information and to-do lists for all employees'''
+    """Fetch user information and to-do lists for all employees."""
     # Base URL for the JSONPlaceholder API
     url = "https://jsonplaceholder.typicode.com/"
 
-    # fetch the list of all users employees
+    # Fetch the list of all employees
     users = requests.get(url + "users").json()
 
-    # Create a dictionary containing to-do list info for all employees
+    # Create a dictionary with to-do list information of all employees
     data_to_export = {}
     for user in users:
         user_id = user["id"]
@@ -34,6 +37,6 @@ def fetch_user_data():
 if __name__ == "__main__":
     data_to_export = fetch_user_data()
 
-    # Write the data in a JSON file
+    # Write the data in JSON format
     with open("todo_all_employees.json", "w") as jsonfile:
         json.dump(data_to_export, jsonfile, indent=4)
