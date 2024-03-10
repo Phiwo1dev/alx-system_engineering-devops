@@ -1,3 +1,5 @@
+![Futurama-Good-News](https://github.com/Phiwo1dev/alx-system_engineering-devops/assets/122806468/8d8adc1c-28d7-44f5-8a75-40f3ab58634e)
+
 Duration: 13 March 2019 (24 hours)
 Impact: Global outage of Facebook, Instagram, WhatsApp, and others in the Facebook family of apps, affecting billions of users. Users were unable to access the platforms, and to communicate through the services.
 
